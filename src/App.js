@@ -81,7 +81,8 @@ function Counter() {
 }
 export default Counter;*/
 
-import React, { useState } from 'react';
+// Event handling
+/*import React, { useState } from 'react';
 
 const ButtonClick = () => {
   const [count, setCount] = useState(0); 
@@ -98,7 +99,142 @@ const ButtonClick = () => {
   );
 };
 
-export default ButtonClick;
+export default ButtonClick;*/
 
+// Kết xuất có điều kiện
+/*function Items({ name, isPacked }) {
+  /*if(isPacked){
+    return <li className="item">{name}</li>
+  }
+  return <li className="item">Hello {name}</li>
 
+  // Toán tử 3 ngôi
+  /*return ( <li className="item">{isPacked ? name + "Hello" : name}</li>);
 
+  // Toán tử logic &&
+  /*return (
+    <li className="items">{name} {isPacked && 'Hello'}</li>
+  )
+ let itemContent = name;
+ if (isPacked) {
+  itemContent = name + ' Hello'
+ }
+ return(
+  <li>{itemContent}</li>
+ )
+}
+export default function App() {
+  return (
+    <section>
+      <h1>Danh sach user</h1>
+      <ul>
+        <Items isPacked={true} name="Space suit" />
+        <Items isPacked={false} name="Photo of tom" />
+      </ul>
+    </section>
+  );
+}*/
+
+// Truyền Props cho một Component
+/*import { getImageUrl } from './utils.js';
+
+function Profile({
+  imageId,
+  name,
+  profession,
+  awards,
+  discovery,
+  imageSize = 70
+}) {
+  return (
+    <section className="profile">
+      <h2>{name}</h2>
+      <img
+        className="avatar"
+        src={getImageUrl(imageId)}
+        alt={name}
+        width={imageSize}
+        height={imageSize}
+      />
+      <ul>
+        <li><b>Profession:</b> {profession}</li>
+        <li>
+          <b>Awards: {awards.length} </b>
+          ({awards.join(', ')})
+        </li>
+        <li>
+          <b>Discovered: </b>
+          {discovery}
+        </li>
+      </ul>
+    </section>
+  );
+}
+
+export default function Gallery() {
+  return (
+    <div>
+      <h1>Notable Scientists</h1>
+      <Profile
+        imageId="szV5sdG"
+        name="Maria Skłodowska-Curie"
+        profession="physicist and chemist"
+        discovery="polonium (chemical element)"
+        awards={[
+          'Nobel Prize in Physics',
+          'Nobel Prize in Chemistry',
+          'Davy Medal',
+          'Matteucci Medal'
+        ]}
+      />
+      <Profile
+        imageId='YfeOqp2'
+        name='Katsuko Saruhashi'
+        profession='geochemist'
+        discovery="a method for measuring carbon dioxide in seawater"
+        awards={[
+          'Miyake Prize for geochemistry',
+          'Tanaka Prize'
+        ]}
+      />
+    </div>
+  );
+}*/
+
+import { Component } from 'react';
+
+export default class Counter extends Component {
+  state = {
+    name: 'Taylor',
+    age: 42,
+  };
+
+  handleNameChange = (e) => {
+    this.setState({
+      name: e.target.value
+      
+    });
+    console.log(this.state.name)
+  }
+
+  handleAgeChange = () => {
+    this.setState({
+      age: this.state.age + 1 
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <input
+          value={this.state.name}
+          onChange={this.handleNameChange}
+        />
+        <button onClick={this.handleAgeChange}>
+          Increment age
+        </button>
+        <p>Hello, {this.state.name}. You are {this.state.age}.</p>
+      </>
+    );
+  }
+}
