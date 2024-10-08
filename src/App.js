@@ -1,6 +1,6 @@
 import "./App.css";
 
-// Component
+// 1. Component
 /* function Button() {
   return (
     <>
@@ -13,7 +13,7 @@ export default function App() {
   return <Button />;
 }*/
 
-// JSX
+// 2. JSX
 /*const user = {
     name: "Nguyen Van A",
     age: 20,
@@ -35,7 +35,7 @@ export default function Frofile(){
     )
 }*/
 
-// Props
+// 3. Props
 /*import React from 'react';
 
 function User(props) {
@@ -62,7 +62,7 @@ export default function App() {
   );
 }*/
 
-// State
+// 4. State
 /*import React, { useState } from 'react';
 
 function Counter() {
@@ -81,7 +81,7 @@ function Counter() {
 }
 export default Counter;*/
 
-// Event handling
+// 5. Event handling
 /*import React, { useState } from 'react';
 
 const ButtonClick = () => {
@@ -101,7 +101,7 @@ const ButtonClick = () => {
 
 export default ButtonClick;*/
 
-// Kết xuất có điều kiện
+// 6. Kết xuất có điều kiện
 /*function Items({ name, isPacked }) {
   /*if(isPacked){
     return <li className="item">{name}</li>
@@ -135,9 +135,9 @@ export default function App() {
   );
 }*/
 
-// Truyền Props cho một Component
-/*import { getImageUrl } from './utils.js';
+// 7. Truyền Props cho một Component
 
+/*import { getImageUrl } from './utils.js';
 function Profile({
   imageId,
   name,
@@ -201,7 +201,9 @@ export default function Gallery() {
   );
 }*/
 
-import { Component } from 'react';
+
+// 8. add state to a class component
+/*import { Component } from 'react';
 
 export default class Counter extends Component {
   state = {
@@ -237,4 +239,48 @@ export default class Counter extends Component {
       </>
     );
   }
+}*/
+
+
+// 9 Event
+
+/*function Button({ onSmash, children }) {
+  return (
+    <button onClick={onSmash}>
+      {children}
+    </button>
+  );
 }
+
+export default function App() {
+  return (
+    <div>
+      <Button onSmash={() => alert('Playing!')}>
+        Play Movie
+      </Button>
+      <Button onSmash={() => alert('Uploading!')}>
+        Upload Image
+      </Button>
+    </div>
+  );
+}*/
+
+//10 Hook useState
+import { useState } from 'react';
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      You click me {count} times
+    </button>
+  );
+}
+
+
+
