@@ -266,7 +266,7 @@ export default function App() {
 }*/
 
 //10 Hook useState
-import { useState } from 'react';
+/*import { useState } from 'react';
 
 export default function Counter() {
   const [count, setCount] = useState(0);
@@ -280,7 +280,48 @@ export default function Counter() {
       You click me {count} times
     </button>
   );
+}*/
+
+//11 Hook useEffect
+/*import React, { useState, useEffect } from 'react';
+
+const ClickCounter = () => {
+  const [count, setCount] = useState(0);
+
+  // useEffect sẽ chạy mỗi khi count thay đổi
+  useEffect(() => {
+    console.log(`nhấn nút ${count} lần`);
+  }, [count]); // Chạy khi count thay đổi
+
+  return (
+    <div>
+      <h1>Số lần nhấn nút: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Nhấn tôi!</button>
+    </div>
+  );
+};
+
+export default ClickCounter;*/
+
+
+//12 Hook useCallback
+import React, { useState, useCallback } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  // Hàm tăng count sẽ được ghi nhớ và không thay đổi qua mỗi lần render,
+  // trừ khi `count` thay đổi.
+  const handleIncrement = useCallback(() => {
+    setCount(count + 1);
+    console.log(count)
+  }, [count]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleIncrement}>Increment</button>
+    </div>
+  );
 }
-
-
-
+export default MyComponent
