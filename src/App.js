@@ -305,7 +305,7 @@ export default ClickCounter;*/
 
 
 //12 Hook useCallback
-import React, { useState, useCallback } from 'react';
+/*import React, { useState, useCallback } from 'react';
 
 function MyComponent() {
   const [count, setCount] = useState(0);
@@ -324,4 +324,74 @@ function MyComponent() {
     </div>
   );
 }
-export default MyComponent
+export default MyComponent*/
+
+//13 Hook useReducer
+/*import { useReducer } from "react";
+// các bc phân tích reducer
+// 1: init State: 0
+const initState = 0;
+// 2: Actions: up(state + 1) / down(state - 1)
+const UP_ACTION = 'up';
+const DOWN_ACTION = 'down'
+// 3: reducer
+const reducer = (state, action) => {
+  console.log('reducer:')
+  switch(action){
+    case UP_ACTION:
+      return state + 1;
+    case DOWN_ACTION:
+      return state - 1;
+    default :
+    throw new Error ("Loi roi ma oi")
+  }
+}
+// 4: dispatch
+function App(){
+  const [count, dispatch] = useReducer(reducer, initState)
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button
+       onClick={() => dispatch(UP_ACTION)}
+      >
+        up
+      </button>
+      <button
+       onClick={() => dispatch(DOWN_ACTION)}
+      >
+        down
+      </button>
+    </div>
+  )
+}
+export default App;*/
+import React, { useMemo, useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [input, setInput] = useState('');
+
+  // ghi nhớ kết quả của phép tính gấp đôi count
+  const Count = useMemo(() => {
+    console.log('Tính count:');
+    return count * 3;
+  }, [count]); //tính lại khi count thay đổi
+
+  return (
+    <div>
+      <h1>Gấp đôi count: {Count}</h1>
+      <button onClick={() => setCount(count + 1)}>Tăng count</button>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Nhập văn bản"
+      />
+    </div>
+  );
+}
+
+export default Counter;
+
