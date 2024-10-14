@@ -2,3 +2,7 @@
 .avatar {
     background-color: rgb(202, 183, 130);
 }
+.dark{
+    color: azure;
+    background-color: black;
+}

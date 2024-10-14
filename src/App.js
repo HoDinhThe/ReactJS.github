@@ -266,6 +266,7 @@ export default function App() {
 }*/
 
 //10 Hook useState
+
 /*import { useState } from 'react';
 
 export default function Counter() {
@@ -283,6 +284,7 @@ export default function Counter() {
 }*/
 
 //11 Hook useEffect
+
 /*import React, { useState, useEffect } from 'react';
 
 const ClickCounter = () => {
@@ -305,6 +307,7 @@ export default ClickCounter;*/
 
 
 //12 Hook useCallback
+
 /*import React, { useState, useCallback } from 'react';
 
 function MyComponent() {
@@ -327,6 +330,7 @@ function MyComponent() {
 export default MyComponent*/
 
 //13 Hook useReducer
+
 /*import { useReducer } from "react";
 // các bc phân tích reducer
 // 1: init State: 0
@@ -367,7 +371,9 @@ function App(){
   )
 }
 export default App;*/
-import React, { useMemo, useState } from 'react';
+
+// 14. Hook useMemo
+/*import React, { useMemo, useState } from 'react';
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -393,5 +399,70 @@ function Counter() {
   );
 }
 
-export default Counter;
+export default Counter;*/
+
+// 15. Hook useContext
+
+/*import { useContext, useState, createContext } from "react";
+ const ThemeContext = createContext()
+
+  console.log(ThemeContext)
+
+function Paragraph(){
+const theme = useContext(ThemeContext)
+  return(
+    <p className={theme}>Context prograph a way to</p>
+  )
+}
+
+function App(){
+  const [theme, setTheme] = useState('dark')
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
+  return(
+    <ThemeContext.Provider value={theme}>
+    <div>
+        <button onClick={toggleTheme}>Toggle</button>
+        <Paragraph/>
+    </div>
+    </ThemeContext.Provider>
+  )
+}
+export default App;*/
+
+// 16. React Router
+import React from "react";
+import { Route, Routes, Link } from "react-router-dom";
+import HomePage from './Pages/Home'
+import NewsPage from './Pages/News'
+import ContactPage from './Pages/Contact'
+function App(){
+  return(
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/news">News</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="/news" element={<NewsPage/>}/>
+        <Route path="/contact" element={<ContactPage/>}/>
+      </Routes>
+    </div>
+  )
+}
+export default App;
+
 
